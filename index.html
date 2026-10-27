@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mô Hình Việt - Cửa hàng mô hình lắp ráp</title>
+  <link rel="icon" href="Images/logo.svg">
+  <script src="Scripts/theme.js"></script>
+  <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+    <header class="header">
+    <div class="container header-in">
+      <a href="#/" class="logo"><img src="Images/logo.png" alt="Logo Mô Hình Việt" width="70" height="70"><span>Model Shop</span></a>
+      <nav id="nav" aria-label="Menu chính">
+        <a href="#/">Trang chủ</a>
+        <a href="#/san-pham">Mô hình</a>
+        <a href="#" data-sapco>Sản phẩm khác</a>
+           <a href="tin-tuc.html">Tin tức</a>
+        <a href="#/lien-he">Liên hệ</a>
+      </nav>
+      <div class="header-phai">
+        <div id="khuTaiKhoan" class="khu-tk"></div>
+        <a href="#/gio-hang" class="gio">Giỏ hàng <b id="soLuongGio">0</b></a>
+        <button id="nutMenu" class="nut-menu" aria-label="Mở menu">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="view-home" class="view">
+          <div class="container banner-luoi">
+        <div class="banner">
+          <div id="bannerTruot" class="banner-truot" role="group" aria-roledescription="carousel" aria-label="Khuyến mãi"></div>
+<div id="bannerCham" class="banner-cham"></div>
+          
+        </div>
+        <aside class="tin-tuc" aria-label="Tin tức">
+          <h2>Tin tức</h2>
+          <div id="dsTin"></div>
+             <a href="tin-tuc.html" class="xem-them">Xem tất cả tin</a>
+        </aside>
+      </div>
+      <div class="container series-khu">
+        <h2 class="series-tieu-de">Series nổi bật</h2>
+        <div id="dsSeries" class="series"></div>
+      </div>
+      <div class="container" id="sanpham">
+        <h2>Danh sách mô hình</h2>
+        <div class="loc">
+          <input type="search" id="timKiem" placeholder="Tìm theo tên mô hình..." aria-label="Tìm kiếm">
+          <select id="locLoai" aria-label="Loại mô hình">
+            <option value="">Tất cả loại</option>
+            <option>Gundam</option><option>Xe mô hình</option><option>Máy bay</option><option>Figure</option>
+          </select>
+          <select id="locGia" aria-label="Khoảng giá">
+            <option value="">Mọi mức giá</option>
+            <option value="0-500000">Dưới 500.000 ₫</option>
+            <option value="500000-1000000">500.000 - 1.000.000 ₫</option>
+            <option value="1000000-999999999">Trên 1.000.000 ₫</option>
+          </select>
+          <select id="sapXep" aria-label="Sắp xếp">
+            <option value="">Mặc định</option>
+            <option value="tang">Giá tăng dần</option>
+            <option value="giam">Giá giảm dần</option>
+          </select>
+          <label class="chon"><input type="checkbox" id="chiConHang"> Chỉ hàng còn</label>
+        </div>
+        <div id="luoi"></div>
+      </div>
+    </section>
+
+  <section id="view-fav" class="view container" hidden>
+  <h2>Mô hình đã thích</h2>
+  <div id="luoiYT" class="luoi"></div>
+</section>
+    <section id="view-cart" class="view container" hidden>
+      <h2>Giỏ hàng</h2>
+      <div class="bang">
+        <table>
+          <thead><tr><th>Sản phẩm</th><th>Đơn giá</th><th>Số lượng</th><th>Thành tiền</th><th></th></tr></thead>
+          <tbody id="dsGio"></tbody>
+        </table>
+      </div>
+      <p class="tong">Tổng cộng: <strong id="tongTien">0 ₫</strong></p>
+
+      <h2>Thông tin đặt hàng</h2>
+      <p id="goiYDangNhap" class="luu-y" hidden>Đã có tài khoản? <a href="dang-nhap.html?tu=gio-hang"><u>Đăng nhập</u></a> để tự điền thông tin và theo dõi đơn hàng.</p>
+      <form id="formDat" class="form">
+        <label>Họ và tên <input name="hoTen" required minlength="2" autocomplete="name"></label>
+        <label>Số điện thoại <input name="sdt" required pattern="0[0-9]{9}" title="Gồm 10 chữ số, bắt đầu bằng 0" inputmode="tel" autocomplete="tel"></label>
+        <label>Email (không bắt buộc) <input name="email" type="email" autocomplete="email"></label>
+        <label>Thanh toán
+          <select name="thanhToan"><option>Thanh toán khi nhận hàng (COD)</option><option>Chuyển khoản ngân hàng</option></select>
+        </label>
+        <label class="rong2">Địa chỉ nhận hàng <input name="diaChi" required minlength="8" autocomplete="street-address"></label>
+        <label class="rong2">Ghi chú <textarea name="ghiChu" rows="2"></textarea></label>
+        <button class="btn rong2" type="submit">Đặt hàng</button>
+        <p class="luu-y rong2">Đây là bản giao diện (frontend): đơn hàng được lưu trong trình duyệt, chưa gửi tới máy chủ.</p>
+      </form>
+      <p id="ketQua" class="ket-qua" role="status" hidden></p>
+    </section>
+  </main>
+
+  <footer id="lien-he" class="footer">
+    <div class="container">
+      <strong>Mô Hình Việt</strong>
+      <p>Hotline: 0900 000 000 · Email: lienhe@mohinhviet.example · Thủ Đức, TP. Hồ Chí Minh</p>
+    </div>
+  </footer>
+
+  <div id="thongBao" class="thong-bao" role="status"></div>
+     <script src="Scripts/du_lieu_tin.js"></script>
+  <script src="Scripts/auth.js"></script>
+  <script src="Scripts/app.js"></script>
+</body>
+</html>

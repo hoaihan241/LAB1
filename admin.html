@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quản trị - Mô Hình Việt</title>
+  <link rel="icon" href="Images/logo.svg">
+  <script src="Scripts/theme.js"></script>
+  <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-in">
+      <a href="index.html" class="logo"><img src="Images/logo.svg" alt="Logo Mô Hình Việt" width="36" height="36"><span>Mô Hình Việt</span></a>
+      <nav id="nav" aria-label="Menu chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="index.html#/san-pham">Mô hình</a>
+        <a href="#" data-sapco>Sản phẩm khác</a>
+           <a href="tin-tuc.html">Tin tức</a>
+        <a href="index.html#/lien-he">Liên hệ</a>
+      </nav>
+      <div class="header-phai">
+        <div id="khuTaiKhoan" class="khu-tk"></div>
+        <a href="index.html#/gio-hang" class="gio">Giỏ hàng <b id="soLuongGio">0</b></a>
+        <button id="nutMenu" class="nut-menu" aria-label="Mở menu">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="noiDungAdmin" hidden>
+    <h2>Trang quản trị</h2>
+    <div id="thongKe" class="thong-ke"></div>
+
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab-nut hien" data-tab="don">Đơn hàng</button>
+      <button type="button" class="tab-nut" data-tab="sp">Sản phẩm</button>
+      <button type="button" class="tab-nut" data-tab="kh">Tài khoản</button>
+    </div>
+
+    <section id="tab-don">
+      <div class="loc loc-don">
+        <select id="locTrangThai" aria-label="Lọc theo trạng thái"><option value="">Tất cả trạng thái</option></select>
+      </div>
+      <div class="bang">
+        <table>
+          <thead><tr><th>Mã / Ngày</th><th>Khách hàng</th><th>Sản phẩm</th><th>Tổng</th><th>Trạng thái</th></tr></thead>
+          <tbody id="dsDonAdmin"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tab-sp" hidden>
+      <form id="formSP" class="form">
+        <input type="hidden" name="maSP">
+        <label>Tên mô hình <input name="ten" required></label>
+        <label>Loại
+          <select name="loai"><option>Gundam</option><option>Xe mô hình</option><option>Máy bay</option><option>Figure</option></select>
+        </label>
+        <label>Giá (₫) <input name="gia" type="number" min="0" step="1000" required></label>
+        <label>Tồn kho <input name="kho" type="number" min="0" step="1" required></label>
+        <label>Giá cũ (₫, bỏ trống nếu không giảm giá) <input name="giaCu" type="number" min="0" step="1000"></label>
+        <label class="chon">Đánh dấu nhãn "Mới" <input type="checkbox" name="moi"></label>
+        <label class="rong2">Đường dẫn ảnh <input name="anh" required></label>
+        <label class="rong2">Mô tả <textarea name="mota" rows="2"></textarea></label>
+        <div class="rong2 hang-nut">
+          <button class="btn" type="submit" id="nutLuuSP">Thêm sản phẩm</button>
+          <button class="btn nut-phu" type="button" id="nutHuySua" hidden>Hủy sửa</button>
+        </div>
+      </form>
+      <div class="bang" style="margin-top:1rem">
+        <table>
+          <thead><tr><th>Sản phẩm</th><th>Giá</th><th>Kho</th><th></th></tr></thead>
+          <tbody id="dsSPAdmin"></tbody>
+        </table>
+      </div>
+      <p class="luu-y">Dữ liệu sản phẩm đang lưu trong trình duyệt. <button type="button" id="nutKhoiPhuc" class="xoa">Khôi phục sản phẩm mẫu</button></p>
+    </section>
+
+    <section id="tab-kh" hidden>
+      <div class="bang">
+        <table>
+          <thead><tr><th>Họ tên</th><th>Liên hệ</th><th>Vai trò</th><th>Số đơn</th><th></th></tr></thead>
+          <tbody id="dsKH"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer id="lien-he" class="footer">
+    <div class="container">
+      <strong>Mô Hình Việt</strong>
+      <p>Hotline: 0900 000 000 · Email: lienhe@mohinhviet.example · Thủ Đức, TP. Hồ Chí Minh</p>
+    </div>
+  </footer>
+
+  <div id="thongBao" class="thong-bao" role="status"></div>
+  <script src="Scripts/auth.js"></script>
+  <script src="Scripts/app.js"></script>
+  <script src="Scripts/admin.js"></script>
+</body>
+</html>
